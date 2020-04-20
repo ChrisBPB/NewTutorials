@@ -29,7 +29,7 @@ public class Fight extends Task {
 
     @Override
     public boolean activate() {
-        double healthPercent = ctx.skills.level(Constants.SKILLS_HITPOINTS) / ctx.skills.realLevel(Constants.SKILLS_HITPOINTS);
+        double healthPercent = (double)ctx.skills.level(Constants.SKILLS_HITPOINTS) / (double) ctx.skills.realLevel(Constants.SKILLS_HITPOINTS);
 
         return  ctx.players.local().healthBarVisible() == false &&
                 !ctx.players.local().interacting().valid() &&
@@ -40,7 +40,6 @@ public class Fight extends Task {
 
     @Override
     public void execute() {
-        System.out.println("Fighter");
         Filter<Npc> filter = new Filter<Npc>() {
             @Override
             public boolean accept(Npc npc) {

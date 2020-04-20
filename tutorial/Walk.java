@@ -27,7 +27,8 @@ public class Walk extends Task {
 
     @Override
     public boolean activate() {
-        return ctx.inventory.isFull() || (!ctx.inventory.isFull() && !cowField.contains(ctx.players.local()));
+        return (ctx.bank.nearest().tile().distanceTo(ctx.players.local())>4 && ctx.inventory.isFull()) ||
+                (!ctx.inventory.isFull() && !cowField.contains(ctx.players.local()));
     }
 
     @Override
